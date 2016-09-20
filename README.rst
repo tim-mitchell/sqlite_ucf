@@ -16,7 +16,7 @@ support unicode characters::
     >>> cur.execute('SELECT * from test').fetchall()
     [('A',), ('a',), ('Á',), ('á',)]
     
-However the sqlite functions ``lower()``, ``upper()``, ``like()`` and the NOCASE collation
+However the sqlite functions ``lower()``, ``upper()``, ``like()`` and the ``nocase`` collation
 only implement ascii case folding.  That is [A-Z] maps to [a-z] and vice versa.
 This can lead to unexpected results::
 
@@ -31,13 +31,13 @@ The sqlite_ucf (SQLITE Unicode Case Folding) wrapper uses
 and ``sqlite3.Connection.create_collation`` to override the built-in ``nocase`` collation.
 
 There are 2 ways to enable unicode case folding. 
-Using the ``sqlite_ucf.connect`` method with ``unicode_case_folding=True``,::
+Using the ``sqlite_ucf.connect`` method with ``unicode_case_folding=True``::
 
     >>> conn = sqlite_ucf.connect(':memory:', unicode_case_folding=True, ...)
 
 or by setting the module variable ``unicode_case_folding_default`` to ``True``::
 
-    >>> unicode_case_folding_default = True
+    >>> sqlite_ucf.unicode_case_folding_default = True
     
 which will then make all ``sqlite_ucf.connect`` calls add unicode case folding to the 
 connection::
@@ -51,6 +51,9 @@ connection::
 
 You can still use your own ``sqlite3.Connection`` subclass with the ``factory`` key-word.
 
+-------
+Caveats
+-------
 Note that the default value for ``unicode_case_folding_default`` is ``False`` which is the 
 same as using sqlite3 directly.  This is because unicode case folding makes the 
 sqlite database non-portable to other languages for which sqlite bindings exist.  
