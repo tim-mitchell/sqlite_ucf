@@ -73,4 +73,5 @@ def connect(database, unicode_case_folding=None, **kwargs):
         connection.create_function('UPPER', 1, lambda x: x.upper())
         connection.create_function('LIKE', 2, _uni_like)
         connection.create_function('LIKE', 3, _uni_like_escape)
+        connection.execute('REINDEX NOCASE')
     return connection

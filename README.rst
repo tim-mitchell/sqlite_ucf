@@ -60,5 +60,5 @@ sqlite database non-portable to other languages for which sqlite bindings exist.
 A unique index on a text column with a nocase collation which is unique when 
 created with sqlite in another language may not be unique with the python unicode 
 case-folding collation function installed.  Unicode case folding is not safe to use 
-with databases that will be opened by other applications.
+with databases that will be opened by other non-python applications.
 
