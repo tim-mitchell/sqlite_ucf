@@ -3,7 +3,7 @@ import setuptools
 
 setuptools.setup(
     name="sqlite_ucf",
-    version="1.0.0",
+    version="1.0.1",
     author="Tim Mitchell",
     author_email="tim.mitchell@seequent.com",
     description="An alternate sqlite3.connect function that adds unicode case folding functionality.",
