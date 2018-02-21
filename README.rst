@@ -1,6 +1,8 @@
 ==========
 sqlite_ucf
 ==========
+.. image:: https://travis-ci.org/tim-mitchell/sqlite_ucf.svg?branch=master
+    :target: https://travis-ci.org/tim-mitchell/sqlite_ucf
 
 An alternate sqlite3.connect function that adds unicode case folding functionality.
 
