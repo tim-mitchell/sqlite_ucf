@@ -1,12 +1,12 @@
 ==========
 sqlite_ucf
 ==========
+An alternate sqlite3.connect function that adds unicode case folding functionality.
+
 .. image:: https://travis-ci.org/tim-mitchell/sqlite_ucf.svg?branch=master
     :target: https://travis-ci.org/tim-mitchell/sqlite_ucf
 
-An alternate sqlite3.connect function that adds unicode case folding functionality.
-
-The builtin sqlite3 module provides access to sqlite databases which 
+The builtin sqlite3 module provides access to sqlite databases which
 support unicode characters::
 
     >>> conn = sqlite3.connect(':memory:')
